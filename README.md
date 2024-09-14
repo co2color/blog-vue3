@@ -1,2 +1,1 @@
-# next-blog
-nextjs blog
+vue3 blog

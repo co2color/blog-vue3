@@ -8,13 +8,14 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/layout'),
-      redirect: '/dashboard',
+      name: 'layout',
+      component: () => import('@/layout/layout.vue'),
+      redirect: '/',
       children: [
         {
           path: '/',
           name: 'home',
-          component: () => import('../views/Home/Home.vue'),
+          component: () => import('@/views/Home/Home.vue'),
           meta: { title: '首页' },
         },
       ],

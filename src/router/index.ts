@@ -16,7 +16,7 @@ const router = createRouter({
           path: '/',
           name: 'home',
           component: () => import('@/views/Home/Home.vue'),
-          meta: { title: '首页' },
+          meta: { title: 'homepage' },
         },
       ],
     },
@@ -26,6 +26,12 @@ const router = createRouter({
     //   component: () => import('../views/AboutView.vue'),
     // },
   ],
+})
+
+router.afterEach((to) => {
+  if (to.meta?.title) {
+    document.title = `${to.meta.title}-cococolor`
+  }
 })
 
 export default router

@@ -5,7 +5,9 @@ import layHeader from './components/lay-header/lay-header.vue'
 </script>
 
 <template>
-  <div>
+  <div
+    class="w-320 m-auto"
+  >
     <layHeader />
     <layContent />
     <layFooter />

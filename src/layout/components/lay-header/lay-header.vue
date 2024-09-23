@@ -14,6 +14,7 @@ const commandList = ref([
     type: 'text',
     iconfont: '',
     href: 'https://github.com/co2color',
+    target: '_blank',
   },
   {
     label: 'dark',
@@ -25,11 +26,11 @@ const commandList = ref([
 
 <template>
   <header class="flex justify-between h-15 items-center text-coolgray">
-    <span>cococolor</span>
+    <span class="cursor-pointer" href="/">cococolor</span>
     <nav class="grid gap-5 grid-auto-flow-col">
       <a
         v-for="item in commandList" :key="item.label" class="inline-block decoration-none text-coolgray transition-all
-        opacity-60 hover:opacity-100 cursor-pointer" :href="item?.href" :target="item.href && '_blank'"
+        opacity-60 hover:opacity-100 cursor-pointer" :href="item?.href" :target="item?.target"
       >
         <div v-if="item.iconfont">icon</div>
         <div v-else class="text-inherit">{{ item.label }}</div>

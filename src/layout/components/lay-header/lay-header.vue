@@ -38,14 +38,14 @@ function changeTheme(item: ICommand) {
 
 <template>
   <header class="flex justify-between h-15 items-center">
-    <a class="cursor-pointer text-sm decoration-none text-coolgray-7 dark:text-coolgray-2" href="/">cococolor</a>
+    <a class="cursor-pointer text-lg decoration-none text-coolgray dark:text-coolgray-2" href="/">cococolor</a>
     <nav class="grid gap-3 grid-auto-flow-col">
       <a
         v-for="item in commandList" :key="item.label"
         class="inline-block decoration-none text-coolgray-7 dark:text-coolgray-2 transition-all opacity-60 hover:opacity-100 cursor-pointer"
         :href="item?.href" :target="item?.target" @click="item.commandCallBack && item.commandCallBack(item)"
       >
-        <i v-if="item.iconfont" :class="`transition-all text-sm iconfont ${item.iconfont}`" />
+        <i v-if="item.iconfont" :class="`transition-all text-lg iconfont ${item.iconfont}`" />
         <div v-else class="text-inherit">{{ item.label }}</div>
       </a>
     </nav>

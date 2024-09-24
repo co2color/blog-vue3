@@ -33,6 +33,8 @@ const commandList: Ref<ICommand[]> = ref([
 function changeTheme(item: ICommand) {
   item.iconfont = isDark.value ? 'icon-sun' : 'icon-moon'
   toggleDark()
+  // html 背景色
+  document.documentElement.style.backgroundColor = isDark.value ? '#f0f0f0' : '#333'
 }
 </script>
 

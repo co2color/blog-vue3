@@ -1,6 +1,9 @@
 <script lang="ts" setup>
+import { useDark, useToggle } from '@vueuse/core'
 import { ref, type Ref } from 'vue'
-import { RouterLink } from 'vue-router'
+
+const isDark = useDark()
+const toggleDark = useToggle(isDark)
 
 interface ICommand {
   label: string
@@ -10,8 +13,6 @@ interface ICommand {
   target?: string
   commandCallBack?: (item: ICommand) => void
 }
-
-const isDark = ref(false)
 
 const commandList: Ref<ICommand[]> = ref([
   {
@@ -24,15 +25,14 @@ const commandList: Ref<ICommand[]> = ref([
   {
     label: 'dark',
     type: 'iconfont',
-    iconfont: 'icon-sun',
+    iconfont: isDark.value ? 'icon-moon' : 'icon-sun',
     commandCallBack: changeTheme,
   },
 ])
 
 function changeTheme(item: ICommand) {
   item.iconfont = isDark.value ? 'icon-sun' : 'icon-moon'
-  isDark.value = !isDark.value
-  document.documentElement.classList.toggle('dark')
+  toggleDark()
 }
 </script>
 

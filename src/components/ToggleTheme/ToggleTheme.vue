@@ -3,5 +3,5 @@
 </script>
 
 <template>
-  <i class="transition-all text-lg iconfont" icon-sum />
+  <div i-ri-moon-line dark:i-ri-moon-line />
 </template>

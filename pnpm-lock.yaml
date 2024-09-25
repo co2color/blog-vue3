@@ -24,6 +24,9 @@ importers:
       '@antfu/eslint-config':
         specifier: ^3.6.0
         version: 3.6.0(@typescript-eslint/utils@8.5.0(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2))(@vue/compiler-sfc@3.5.5)(eslint@9.10.0(jiti@1.21.6))(typescript@5.6.2)(vitest@2.1.1(@types/node@20.16.5)(jsdom@25.0.0))
+      '@iconify/json':
+        specifier: ^2.2.252
+        version: 2.2.252
       '@tsconfig/node20':
         specifier: ^20.1.4
         version: 20.1.4
@@ -57,6 +60,9 @@ importers:
       unocss:
         specifier: ^0.62.3
         version: 0.62.3(postcss@8.4.47)(rollup@4.21.3)(vite@5.4.5(@types/node@20.16.5))
+      unplugin-icons:
+        specifier: ^0.19.3
+        version: 0.19.3(@vue/compiler-sfc@3.5.5)
       vite:
         specifier: ^5.4.5
         version: 5.4.5(@types/node@20.16.5)
@@ -631,6 +637,9 @@ packages:
   '@humanwhocodes/retry@0.3.0':
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
+
+  '@iconify/json@2.2.252':
+    resolution: {integrity: sha512-AtdDjLhN4aBEncnWghiw9JdBRxKAXFcaQmwDFDWPL1UF/cPuuC8BADZzfHIoVcVlEvEbv69tFrzmhj1z/+PGlA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -2780,6 +2789,35 @@ packages:
       vite:
         optional: true
 
+  unplugin-icons@0.19.3:
+    resolution: {integrity: sha512-EUegRmsAI6+rrYr0vXjFlIP+lg4fSC4zb62zAZKx8FGXlWAGgEGBCa3JDe27aRAXhistObLPbBPhwa/0jYLFkQ==}
+    peerDependencies:
+      '@svgr/core': '>=7.0.0'
+      '@svgx/core': ^1.0.1
+      '@vue/compiler-sfc': ^3.0.2 || ^2.7.0
+      vue-template-compiler: ^2.6.12
+      vue-template-es2015-compiler: ^1.9.0
+    peerDependenciesMeta:
+      '@svgr/core':
+        optional: true
+      '@svgx/core':
+        optional: true
+      '@vue/compiler-sfc':
+        optional: true
+      vue-template-compiler:
+        optional: true
+      vue-template-es2015-compiler:
+        optional: true
+
+  unplugin@1.14.1:
+    resolution: {integrity: sha512-lBlHbfSFPToDYp9pjXlUEFVxYLaue9f9T1HC+4OHlmj+HnMDdz9oZY+erXfoCe/5V/7gKUSY2jpXPb9S7f0f/w==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      webpack-sources: ^3
+    peerDependenciesMeta:
+      webpack-sources:
+        optional: true
+
   update-browserslist-db@1.1.0:
     resolution: {integrity: sha512-EdRAaAyk2cUE1wOf2DkEhzxqOQvFOoRJFNS6NeyJ01Gp2beMRpBAINjM2iDXE3KCuKhwnvHIQCJm6ThL2Z+HzQ==}
     hasBin: true
@@ -2934,6 +2972,9 @@ packages:
   webidl-conversions@7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
     engines: {node: '>=12'}
+
+  webpack-virtual-modules@0.6.2:
+    resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
@@ -3521,6 +3562,11 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.3.0': {}
+
+  '@iconify/json@2.2.252':
+    dependencies:
+      '@iconify/types': 2.0.0
+      pathe: 1.1.2
 
   '@iconify/types@2.0.0': {}
 
@@ -6015,6 +6061,26 @@ snapshots:
       - rollup
       - supports-color
 
+  unplugin-icons@0.19.3(@vue/compiler-sfc@3.5.5):
+    dependencies:
+      '@antfu/install-pkg': 0.4.1
+      '@antfu/utils': 0.7.10
+      '@iconify/utils': 2.1.33
+      debug: 4.3.7
+      kolorist: 1.8.0
+      local-pkg: 0.5.0
+      unplugin: 1.14.1
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.5.5
+    transitivePeerDependencies:
+      - supports-color
+      - webpack-sources
+
+  unplugin@1.14.1:
+    dependencies:
+      acorn: 8.12.1
+      webpack-virtual-modules: 0.6.2
+
   update-browserslist-db@1.1.0(browserslist@4.23.3):
     dependencies:
       browserslist: 4.23.3
@@ -6197,6 +6263,8 @@ snapshots:
       xml-name-validator: 5.0.0
 
   webidl-conversions@7.0.0: {}
+
+  webpack-virtual-modules@0.6.2: {}
 
   whatwg-encoding@3.1.1:
     dependencies:

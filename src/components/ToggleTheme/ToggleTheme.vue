@@ -6,5 +6,5 @@ const toggleDark = useToggle(isDark)
 </script>
 
 <template>
-  <div i-ri-moon-line dark:i-ri-moon-line @click="toggleDark" />
+  <div text-xl i-ri-sun-line dark:i-ri-moon-line @click="toggleDark()" />
 </template>

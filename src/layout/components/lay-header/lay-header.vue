@@ -1,26 +1,22 @@
 <script lang="ts" setup>
 import ToggleTheme from '@/components/ToggleTheme/ToggleTheme.vue'
-import { useDark, useToggle } from '@vueuse/core'
-import { type Component, ref, type Ref } from 'vue'
-
-// const isDark = useDark()
-// const toggleDark = useToggle(isDark)
+import { type Component, type Ref, shallowRef } from 'vue'
 
 interface ICommand {
   label: string
-  type: 'iconfont' | 'text' | 'component'
-  iconfont?: string
+  type: 'iconify' | 'text' | 'component'
+  icon?: string
   href?: string
   target?: string
   component?: Component
   commandCallBack?: (item: ICommand) => void
 }
 
-const commandList: Ref<ICommand[]> = ref([
+const commandList: Ref<ICommand[]> = shallowRef([
   {
     label: '',
-    type: 'iconfont',
-    iconfont: 'icon-GitHub',
+    type: 'iconify',
+    icon: 'i-uil-github-alt',
     href: 'https://github.com/co2color',
     target: '_blank',
   },
@@ -30,13 +26,6 @@ const commandList: Ref<ICommand[]> = ref([
     component: ToggleTheme,
   },
 ])
-
-// function changeTheme(item: ICommand) {
-//   item.iconfont = isDark.value ? 'icon-sun' : 'icon-moon'
-//   toggleDark()
-//   // html 背景色
-//   document.documentElement.style.backgroundColor = !isDark.value ? '#f0f0f0' : '#333'
-// }
 </script>
 
 <template>
@@ -45,12 +34,10 @@ const commandList: Ref<ICommand[]> = ref([
     <nav class="grid gap-3 grid-auto-flow-col">
       <a
         v-for="item in commandList" :key="item.label"
-        class="inline-block decoration-none text-coolgray-7 dark:text-coolgray-2 transition-all opacity-60 hover:opacity-100 cursor-pointer"
+        class="flex items-center justify-center  leading-none inline-block decoration-none text-coolgray-7 dark:text-coolgray-2 transition-all opacity-50 hover:opacity-100 cursor-pointer"
         :href="item?.href" :target="item?.target" @click="item.commandCallBack && item.commandCallBack(item)"
       >
-        <div v-if="item.iconfont">
-          <i :class="`transition-all  iconfont ${item.iconfont}`" />
-        </div>
+        <i v-if="item.type === 'iconify'" :class="`text-xl transition-all ${item.icon}`" />
         <component :is="item.component" v-else-if="item.component" />
         <div v-else class="text-inherit">{{ item.label }}</div>
       </a>

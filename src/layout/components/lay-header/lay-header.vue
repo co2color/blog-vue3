@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import ToggleTheme from '@/components/ToggleTheme/ToggleTheme.vue'
 import { useDark, useToggle } from '@vueuse/core'
 import { ref, type Ref } from 'vue'
 
@@ -22,20 +23,20 @@ const commandList: Ref<ICommand[]> = ref([
     href: 'https://github.com/co2color',
     target: '_blank',
   },
-  {
-    label: 'dark',
-    type: 'iconfont',
-    iconfont: isDark.value ? 'icon-moon' : 'icon-sun',
-    commandCallBack: changeTheme,
-  },
+  // {
+  //   label: 'dark',
+  //   type: 'iconfont',
+  //   iconfont: isDark.value ? 'icon-moon' : 'icon-sun',
+  //   commandCallBack: changeTheme,
+  // },
 ])
 
-function changeTheme(item: ICommand) {
-  item.iconfont = isDark.value ? 'icon-sun' : 'icon-moon'
-  toggleDark()
-  // html 背景色
-  document.documentElement.style.backgroundColor = isDark.value ? '#f0f0f0' : '#333'
-}
+// function changeTheme(item: ICommand) {
+//   item.iconfont = isDark.value ? 'icon-sun' : 'icon-moon'
+//   toggleDark()
+//   // html 背景色
+//   document.documentElement.style.backgroundColor = !isDark.value ? '#f0f0f0' : '#333'
+// }
 </script>
 
 <template>
@@ -50,6 +51,7 @@ function changeTheme(item: ICommand) {
         <i v-if="item.iconfont" :class="`transition-all text-lg iconfont ${item.iconfont}`" />
         <div v-else class="text-inherit">{{ item.label }}</div>
       </a>
+      <ToggleTheme />
     </nav>
   </header>
 </template>

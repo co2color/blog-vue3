@@ -4,6 +4,7 @@ import { nextTick } from 'vue'
 
 const isDark = useDark()
 function toggleDark(event: MouseEvent) {
+  // TODO 解决startViewTransition类型问题
   const isAppearanceTransition = (document as any).startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 

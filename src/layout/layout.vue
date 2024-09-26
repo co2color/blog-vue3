@@ -6,7 +6,7 @@ import layHeader from './components/lay-header/lay-header.vue'
 
 <template>
   <div
-    class="w-320 m-auto"
+    class="px-2"
   >
     <layHeader />
     <layContent />

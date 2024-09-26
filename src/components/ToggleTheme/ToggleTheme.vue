@@ -1,12 +1,10 @@
 <script lang="ts" setup>
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark } from '@vueuse/core'
 import { nextTick } from 'vue'
 
 const isDark = useDark()
-// const toggleDark = useToggle(isDark)
-
 function toggleDark(event: MouseEvent) {
-  // @ts-expect-error experimental API
+  // @ts-expect-error: Transition API
   const isAppearanceTransition = document.startViewTransition
     && !window.matchMedia('(prefers-reduced-motion: reduce)').matches
 

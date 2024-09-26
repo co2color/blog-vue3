@@ -30,16 +30,16 @@ const commandList: Ref<ICommand[]> = shallowRef([
 
 <template>
   <header class="flex justify-between h-15 items-center">
-    <a class="cursor-pointer  decoration-none text-coolgray dark:text-coolgray-2" href="/">cococolor</a>
+    <a class="cursor-pointer decoration-none text-inherit" href="/">cococolor</a>
     <nav class="grid gap-3 grid-auto-flow-col">
       <a
         v-for="item in commandList" :key="item.label"
-        class="flex items-center justify-center  leading-none inline-block decoration-none text-coolgray-7 dark:text-coolgray-2 transition-all opacity-50 hover:opacity-100 cursor-pointer"
+        class="text-inherit decoration-none flex items-center justify-center leading-none inline-block decoration-none  transition-all op60 hover:op100 cursor-pointer"
         :href="item?.href" :target="item?.target" @click="item.commandCallBack && item.commandCallBack(item)"
       >
         <i v-if="item.type === 'iconify'" :class="`text-xl transition-all ${item.icon}`" />
         <component :is="item.component" v-else-if="item.component" />
-        <div v-else class="text-inherit">{{ item.label }}</div>
+        <div v-else>{{ item.label }}</div>
       </a>
     </nav>
   </header>

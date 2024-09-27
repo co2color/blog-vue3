@@ -6,7 +6,6 @@ interface ICommand {
   type: 'iconify' | 'component'
   icon?: string
   href?: string
-  target?: string
   component?: Component
 }
 

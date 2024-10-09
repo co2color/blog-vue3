@@ -1,10 +1,9 @@
-/* eslint-disable node/prefer-global/process */
 /* eslint-disable no-console */
 
 try {
   window.ge = window.gravityEngine
 
-  console.log(process.env.GE_ACCESS_TOKEN, 1)
+  console.log(import.meta.env)
   window.ge.init({
     autoTrack: {
       pageShow: true,
@@ -12,7 +11,7 @@ try {
     },
     mode: 'none',
     showLog: false,
-    accessToken: process.env.GE_ACCESS_TOKEN,
+    accessToken: import.meta.env.VITE_GE_ACCESS_TOKEN,
   })
   window.ge.setSuperProperties({ data_version: 1 })
   window.ge.enableTracking(false) // 注册成功后再允许track

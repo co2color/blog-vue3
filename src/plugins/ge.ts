@@ -4,7 +4,7 @@
 try {
   window.ge = window.gravityEngine
 
-  console.log(process.env.GE_ACCESS_TOKEN)
+  console.log(process.env.GE_ACCESS_TOKEN, 1)
   window.ge.init({
     autoTrack: {
       pageShow: true,

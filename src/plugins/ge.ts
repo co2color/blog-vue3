@@ -1,9 +1,5 @@
-/* eslint-disable no-console */
-
 try {
   window.ge = window.gravityEngine
-
-  console.log(import.meta.env)
   window.ge.init({
     autoTrack: {
       pageShow: true,

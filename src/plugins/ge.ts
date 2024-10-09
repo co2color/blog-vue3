@@ -1,7 +1,9 @@
-import process from 'node:process'
+/* eslint-disable node/prefer-global/process */
+/* eslint-disable no-console */
 
 try {
   window.ge = window.gravityEngine
+
   console.log(process.env.GE_ACCESS_TOKEN)
   window.ge.init({
     autoTrack: {

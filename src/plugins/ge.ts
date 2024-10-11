@@ -9,7 +9,6 @@ try {
     showLog: false,
     accessToken: import.meta.env.VITE_GE_ACCESS_TOKEN,
   })
-  window.ge.setSuperProperties({ data_version: 1 })
   window.ge.enableTracking(false) // 注册成功后再允许track
   window.ge
     .register({

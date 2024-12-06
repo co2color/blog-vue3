@@ -23,15 +23,15 @@ const commandList: ICommand[] = ([
 </script>
 
 <template>
-  <header class="flex justify-between h-15 items-center">
-    <a class="cursor-pointer" href="/">cococolor</a>
-    <nav class="grid gap-3 grid-auto-flow-col">
+  <header px-2 flex justify-between pt-4 items-center sticky top-0 style="background-color: var(--c-bg)">
+    <a cursor-pointer text-lg href="/">cococolor</a>
+    <nav grid gap-3 grid-auto-flow-col>
       <a
         v-for="item, index in commandList" :key="index"
-        class="flex items-center justify-center leading-none inline-block decoration-none  transition-all op60 hover:op100 cursor-pointer"
+        flex items-center justify-center leading-none inline-block decoration-none transition-all op60 hover:op100 cursor-pointer
         :href="item?.href" target="_blank"
       >
-        <i v-if="item.type === 'iconify'" :class="`text-xl transition-all ${item.icon}`" />
+        <i v-if="item.type === 'iconify'" text-xl transition-all :class="`${item.icon}`" />
         <component :is="item.component" v-else-if="item.component" />
       </a>
     </nav>

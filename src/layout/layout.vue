@@ -5,11 +5,9 @@ import layHeader from './components/lay-header/lay-header.vue'
 </script>
 
 <template>
-  <div
-    class="px-2"
-  >
+  <div>
     <layHeader />
     <layContent />
-    <layFooter />
+    <!-- <layFooter /> -->
   </div>
 </template>

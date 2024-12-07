@@ -23,7 +23,7 @@ const commandList: ICommand[] = ([
 </script>
 
 <template>
-  <header px-2 flex justify-between pt-4 items-center sticky top-0 style="background-color: var(--c-bg)">
+  <header px-4 flex justify-between pt-4 items-center sticky top-0 style="background-color: var(--c-bg)">
     <a cursor-pointer text-lg href="/">cococolor</a>
     <nav grid gap-3 grid-auto-flow-col>
       <a
